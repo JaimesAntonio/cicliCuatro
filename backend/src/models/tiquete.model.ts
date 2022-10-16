@@ -9,6 +9,15 @@ export class Tiquete extends Entity {
   })
   id?: string;
 
+  @property({
+    type: 'string',
+  })
+  usuarioId?: string;
+
+  @property({
+    type: 'string',
+  })
+  vuelosId?: string;
 
   constructor(data?: Partial<Tiquete>) {
     super(data);
