@@ -1,8 +1,7 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {Vuelos} from './vuelos.model';
+import {Entity, model, property} from '@loopback/repository';
 
-@model({settings: {strict: false}})
-export class Pilotos extends Entity {
+@model()
+export class Usuario extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -40,21 +39,14 @@ export class Pilotos extends Entity {
   })
   contrasena: string;
 
-  @hasMany(() => Vuelos)
-  vuelos: Vuelos[];
-  // Define well-known properties here
 
-  // Indexer property to allow additional data
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [prop: string]: any;
-
-  constructor(data?: Partial<Pilotos>) {
+  constructor(data?: Partial<Usuario>) {
     super(data);
   }
 }
 
-export interface PilotosRelations {
+export interface UsuarioRelations {
   // describe navigational properties here
 }
 
-export type PilotosWithRelations = Pilotos & PilotosRelations;
+export type UsuarioWithRelations = Usuario & UsuarioRelations;

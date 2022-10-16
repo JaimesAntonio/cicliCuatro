@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Aeropuertos} from './aeropuertos.model';
 
 @model({settings: {strict: false}})
 export class Rutas extends Entity {
@@ -27,6 +28,8 @@ export class Rutas extends Entity {
   })
   tiempo: string;
 
+  @belongsTo(() => Aeropuertos)
+  aeropuertosId: string;
   // Define well-known properties here
 
   // Indexer property to allow additional data

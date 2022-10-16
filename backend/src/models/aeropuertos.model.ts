@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Vuelos} from './vuelos.model';
+import {Rutas} from './rutas.model';
 
 @model({settings: {strict: false}})
 export class Aeropuertos extends Entity {
@@ -51,6 +53,11 @@ export class Aeropuertos extends Entity {
   })
   tipo: string;
 
+  @hasMany(() => Vuelos)
+  vuelos: Vuelos[];
+
+  @hasMany(() => Rutas)
+  rutas: Rutas[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
